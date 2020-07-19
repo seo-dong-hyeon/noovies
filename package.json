@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "expo": "~38.0.8",
+    "expo-asset": "~8.1.7",
     "expo-status-bar": "^1.0.2",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
@@ -19,5 +20,10 @@
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0"
   },
-  "private": true
+  "private": true,
+  "name": "noovies",
+  "version": "1.0.0",
+  "repository": "https://github.com/seo-dong-hyeon/noovies",
+  "author": "seo-dong-hyeon <62382430+seo-dong-hyeon@users.noreply.github.com>",
+  "license": "MIT"
 }
