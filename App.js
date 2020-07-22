@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import { AppLoading } from 'expo';
 import { Asset } from "expo-asset";
 import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
+import Stack from './navigation/Stack';
 
 const cacheImages = (images) => images.map(image => {
   if(typeof images === 'string'){
@@ -27,7 +29,6 @@ export default function App() {
       require("./assets/icon.png")
     ]); // 배열로 전달
     const fonts = cacheFonts([Ionicons.font]); // 배열로 전달
-    console.log(fonts);
     return Promise.all([...images, ...fonts]); // 모든 요소 리턴
   };
   
@@ -35,8 +36,13 @@ export default function App() {
   
   return (
     isReady 
-    ? (<Text>Ready...</Text>) 
-    : (<AppLoading
+    ? (
+      <NavigationContainer>
+        <Stack />
+      </NavigationContainer>
+      ) 
+    : (
+      <AppLoading
         startAsync={loadAssets} // 시작할 때 자동 수행 -> promise return -> 기다려줌 -> async 필요x
         onFinish={onFinish} // 자동 수행된 함수가 완료
         onError={console.error} // e => console.error(e)
